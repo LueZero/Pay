@@ -17,11 +17,11 @@ class Pay
     public static function setPay($className)
     {
         $name = strtolower($className);
-        if($name == "ecpay"){
-             self::$pay = new EcPay($name, new EcPaySend());
+        if ($name == "ecpay") {
+            self::$pay = new EcPay($name, new EcPaySend());
         } else if ($name == "linepay") {
-             self::$pay = new LinePay($name, new LinePaySend());
-        }else{
+            self::$pay = new LinePay($name, new LinePaySend());
+        } else {
             throw new \Exception('no pay method class');
         }
         return self::$pay;
@@ -64,7 +64,7 @@ class Pay
     /**
      * 退款
      */
-    public function refund($orderId=null)
+    public function refund($orderId = null)
     {
         return self::$pay->refund($orderId);
     }

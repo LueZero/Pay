@@ -58,7 +58,7 @@ require './vendor/autoload.php';
 
 use Zero\Pay\Pay as Pay;
 
-// LinePay 付款範例 
+// LinePay 付款範例
 $payment = Pay::setPay("linePay");
 $requestsData = [
   'amount' => 100,
@@ -114,4 +114,9 @@ $requestsData = [
 $payment->requestParameter($requestsData);
 $payment->dataProcess();
 echo $payment->refund($orderId);
+```
+
+## 測試使用指令
+```zsh
+./vendor/bin/phpunit tests
 ```
